@@ -1,0 +1,80 @@
+site_name: Airlytics Documentation
+site_description: Technische Dokumentation der Airlytics IoT Raumluft-Monitoring-Plattform
+site_author: Web Services Smart Energy
+site_url: https://web-services-smart-energy.github.io/airlytics-mkdocs/
+repo_name: Web-Services-Smart-Energy/airlytics-mkdocs
+repo_url: https://github.com/Web-Services-Smart-Energy/airlytics-mkdocs
+
+remote_branch: gh-pages
+
+copyright: Airlytics – Internet of Things, SoSe 2026
+
+theme:
+  name: material
+  language: de
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: green
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Dunkelmodus
+    - scheme: slate
+      primary: green
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Hellmodus
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - codehilite
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Überblick: index.md
+  - Architektur:
+      - Systemübersicht: architecture/overview.md
+      - Datenmodell: architecture/data-model.md
+      - Authentifizierung: architecture/authentication.md
+      - Warnlogik & WHO: architecture/warning-logic.md
+  - Hardware:
+      - Raspberry Pi & Sensoren: hardware/raspberry-pi.md
+  - Backend:
+      - AWS IoT Core: backend/aws-iot.md
+      - Lambda-Funktionen: backend/lambdas.md
+      - DynamoDB: backend/dynamodb.md
+      - API & Cognito: backend/api-cognito.md
+  - Frontend:
+      - Vue Dashboard: frontend/dashboard.md
+      - Konfiguration & Build: frontend/local-development.md
+  - Integrationen:
+      - Alexa & Kasa: integrations/alexa.md
+  - Deployment:
+      - Frontend Hosting: deployment/frontend-hosting.md
+      - MkDocs / GitHub Pages: deployment/mkdocs-pages.md
+  - Betrieb:
+      - Tests & Fehlersuche: operations/tests.md
+      - Sicherheit: operations/security.md
